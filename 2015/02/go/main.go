@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"jjshanks.net/adventofcode/v2/YYYY/DD/go/challenge"
+	"jjshanks.net/adventofcode/v2/2015/02/go/challenge"
 )
 
 var forceTime bool

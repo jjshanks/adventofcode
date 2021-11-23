@@ -1,10 +1,5 @@
 # [Day N: Problem Title](https://adventofcode.com/YYYY/day/D)
 
-<details><summary>Script output</summary>
-
 ```
-❯ go run main.go
-...
+> go run go/main.go
 ```
-
-</details>

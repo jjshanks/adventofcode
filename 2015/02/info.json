@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "2",
+    "title": "I Was Told There Would Be No Math",
+    "testCases": {
+        "one": [
+            {
+                "input": "2x3x4",
+                "expected": 58
+            }
+        ],
+        "two": [
+            {
+                "input": "2x3x4",
+                "expected": 34
+            }
+        ]
+    }
+}

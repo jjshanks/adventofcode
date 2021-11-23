@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "3",
+    "title": "Perfectly Spherical Houses in a Vacuum",
+    "testCases": {
+        "one": [
+            {
+                "input": "^>v<",
+                "expected": 4
+            }
+        ],
+        "two": [
+            {
+                "input": "^>v<",
+                "expected": 3
+            }
+        ]
+    }
+}

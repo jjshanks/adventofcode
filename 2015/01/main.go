@@ -1,7 +1,6 @@
 package main
 
 import (
-	"adventOfCode/template/go/challenge"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -11,7 +10,7 @@ import (
 	"time"
 
 	"github.com/fatih/color"
-	"jjshanks.net/adventofcode/v2/YYYY/DD/challenge"
+	"jjshanks.net/adventofcode/v2/2015/01/challenge"
 )
 
 var forceTime bool

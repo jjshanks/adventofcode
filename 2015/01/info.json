@@ -1,0 +1,19 @@
+{
+    "year": "2020",
+    "day": "1",
+    "title": "Report Repair",
+    "testCases": {
+        "one": [
+            {
+                "input": "(()(()(",
+                "expected": 3
+            }
+        ],
+        "two": [
+            {
+                "input": "()())",
+                "expected": 5
+            }
+        ]
+    }
+}

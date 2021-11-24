@@ -1,0 +1,18 @@
+{
+    "year": "2015",
+    "day": "4",
+    "title": "The Ideal Stocking Stuffer",
+    "testCases": {
+        "one": [
+            {
+                "input": "abcdef",
+                "expected": 609043
+            },
+            {
+                "input": "pqrstuv",
+                "expected": 1048970
+            }
+        ],
+        "two": []
+    }
+}

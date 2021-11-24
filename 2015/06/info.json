@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "6",
+    "title": "Probably a Fire Hazard",
+    "testCases": {
+        "one": [
+            {
+                "input": "turn on 0,0 through 999,999\ntoggle 0,0 through 999,0\nturn off 499,499 through 500,500",
+                "expected": 998996
+            }
+        ],
+        "two": [
+            {
+                "input": "turn on 0,0 through 0,0\ntoggle 0,0 through 999,999",
+                "expected": 2000001
+            }
+        ]
+    }
+}

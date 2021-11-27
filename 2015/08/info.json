@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "8",
+    "title": "Matchsticks   ",
+    "testCases": {
+        "one": [
+            {
+                "input": "\"\"\n\"abc\"\n\"aaa\\\"aaa\"\n\"\\x27\"",
+                "expected": 12
+            }
+        ],
+        "two": [
+            {
+                "input": "\"\"\n\"abc\"\n\"aaa\\\"aaa\"\n\"\\x27\"",
+                "expected": 19
+            }
+        ]
+    }
+}

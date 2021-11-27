@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "7",
+    "title": "Some Assembly Required",
+    "testCases": {
+        "one": [
+            {
+                "input": "123 -> b\n456 -> y\nb AND y -> a\nb OR y -> e\nb LSHIFT 2 -> f\ny RSHIFT 2 -> g\nNOT b -> h\nNOT y -> i",
+                "expected": 72
+            }
+        ],
+        "two": [
+            {
+                "input": "123 -> b\n456 -> y\nb AND y -> a\nb OR y -> e\nb LSHIFT 2 -> f\ny RSHIFT 2 -> g\nNOT b -> h\nNOT y -> i",
+                "expected": 392
+            }
+        ]
+    }
+}

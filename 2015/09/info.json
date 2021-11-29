@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "9",
+    "title": "All in a Single Night",
+    "testCases": {
+        "one": [
+            {
+                "input": "London to Dublin = 464\nLondon to Belfast = 518\nDublin to Belfast = 141",
+                "expected": 605
+            }
+        ],
+        "two": [
+            {
+                "input": "London to Dublin = 464\nLondon to Belfast = 518\nDublin to Belfast = 141",
+                "expected": 982
+            }
+        ]
+    }
+}

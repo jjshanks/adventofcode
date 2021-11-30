@@ -1,0 +1,19 @@
+{
+    "year": "2015",
+    "day": "10",
+    "title": "Elves Look, Elves Say",
+    "testCases": {
+        "one": [
+            {
+                "input": "1",
+                "expected": 82350
+            }
+        ],
+        "two": [
+            {
+                "input": "1",
+                "expected": 1166642
+            }
+        ]
+    }
+}

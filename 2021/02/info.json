@@ -1,0 +1,19 @@
+{
+    "year": "2021",
+    "day": "2",
+    "title": "Dive!",
+    "testCases": {
+        "one": [
+            {
+                "input": "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2",
+                "expected": 150
+            }
+        ],
+        "two": [
+            {
+                "input": "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2",
+                "expected": 900
+            }
+        ]
+    }
+}

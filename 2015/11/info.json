@@ -1,0 +1,23 @@
+{
+    "year": "2015",
+    "day": "11",
+    "title": "Corporate Policy",
+    "testCases": {
+        "one": [
+            {
+                "input": "abcdefgh",
+                "expected": "abcdffaa"
+            },
+            {
+                "input": "ghijklmn",
+                "expected": "ghjaabcc"
+            }
+        ],
+        "two": [
+            {
+                "input": "abcdefgh",
+                "expected": "abcdffbb"
+            }
+        ]
+    }
+}

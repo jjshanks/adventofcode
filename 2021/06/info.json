@@ -1,0 +1,19 @@
+{
+    "year": "2021",
+    "day": "6",
+    "title": "Lanternfish",
+    "testCases": {
+        "one": [
+            {
+                "input": "3,4,3,1,2",
+                "expected": 5934
+            }
+        ],
+        "two": [
+            {
+                "input": "3,4,3,1,2",
+                "expected": 26984457539
+            }
+        ]
+    }
+}

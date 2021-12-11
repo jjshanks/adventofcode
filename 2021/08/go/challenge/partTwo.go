@@ -8,6 +8,7 @@ func PartTwo(instr string) int {
 	inputSlice := parse(instr)
 	sum := 0
 	for _, o := range inputSlice {
+		// known just from number of segments
 		one, four, seven, eight := "", "", "", ""
 		for _, p := range o.Patterns {
 			if len(p) == 2 {
@@ -24,17 +25,25 @@ func PartTwo(instr string) int {
 			}
 		}
 		three, nine := "", ""
-		// extra from one and sever is top line
-		//
 		for _, p := range o.Patterns {
 			if len(p) == 6 {
 				r := diff(p, one, four, seven)
+				//  --
+				// -  -
+				//  --
+				//    -
+				//  xx
 				if len(r) == 1 {
 					nine = p
 				}
 			}
 			if len(p) == 5 {
 				r := diff(p, one)
+				//  xx
+				//    -
+				//  xx
+				//    -
+				//  xx
 				if len(r) == 3 {
 					three = p
 				}
@@ -43,26 +52,47 @@ func PartTwo(instr string) int {
 		zero, two, five, six := "", "", "", ""
 		for _, p := range o.Patterns {
 			if len(p) == 5 {
+				// three is known and when diff'd with nine has the same result as five
 				if p == three {
 					continue
 				}
-				// two five
 				r := diff(p, nine)
+				//  --
+				// -
+				//  --
+				//    -
+				//  --
 				if len(r) == 0 {
 					five = p
 				}
+				//  --
+				//    -
+				//  --
+				// x
+				//  --
 				if len(r) == 1 {
 					two = p
 				}
 			}
 			if len(p) == 6 {
+				// nine is known and when diff'd with one has the same result as six
 				if p == nine {
 					continue
 				}
 				r := diff(p, one)
+				//  xx
+				// x  -
+				//
+				// x  -
+				//  xx
 				if len(r) == 4 {
 					zero = p
 				}
+				//  xx
+				// x
+				//  xx
+				// x  -
+				//  xx
 				if len(r) == 5 {
 					six = p
 				}
@@ -101,27 +131,6 @@ func diff(main string, diffs ...string) string {
 		}
 		if !found {
 			r += c
-		}
-	}
-	return r
-}
-
-func detectTop(one, seven string) string {
-	r := ""
-	for _, c := range strings.Split(seven, "") {
-		if !strings.Contains(one, c) {
-			r = c
-			break
-		}
-	}
-	return r
-}
-
-func detectUpperLeftAndMiddle(one, four string) []string {
-	r := make([]string, 0, 2)
-	for _, c := range strings.Split(four, "") {
-		if !strings.Contains(one, c) {
-			r = append(r, c)
 		}
 	}
 	return r

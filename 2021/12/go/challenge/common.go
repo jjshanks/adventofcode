@@ -27,7 +27,7 @@ func clone(s []bool) []bool {
 }
 
 func cloneS(s []string) []string {
-	d := make([]string, len(s))
+	d := make([]string, len(s), len(s)+1)
 	copy(d, s)
 	return d
 }

@@ -45,7 +45,6 @@ func PartTwo(instr string) int {
 			if isSmall && !current.D && !current.Visited[w] {
 				newVisit := clone(current.Visited)
 				newNode := cloneS(current.N)
-
 				path := &Path{
 					Visited: newVisit,
 					Vertex:  w,

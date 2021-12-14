@@ -1,0 +1,27 @@
+{
+    "year": "2021",
+    "day": "12",
+    "title": "Passage Pathing",
+    "testCases": {
+        "one": [
+            {
+                "input": "start-A\nstart-b\nA-c\nA-b\nb-d\nA-end\nb-end",
+                "expected": 10
+            },
+            {
+                "input": "dc-end\nHN-start\nstart-kj\ndc-start\ndc-HN\nLN-dc\nHN-end\nkj-sa\nkj-HN\nkj-dc",
+                "expected": 19
+            },
+            {
+                "input": "fs-end\nhe-DX\nfs-he\nstart-DX\npj-DX\nend-zg\nzg-sl\nzg-pj\npj-he\nRW-he\nfs-DX\npj-RW\nzg-RW\nstart-pj\nhe-WI\nzg-he\npj-fs\nstart-RW",
+                "expected": 226
+            }
+        ],
+        "two": [
+            {
+                "input": "start-A\nstart-b\nA-c\nA-b\nb-d\nA-end\nb-end",
+                "expected": 36
+            }
+        ]
+    }
+}

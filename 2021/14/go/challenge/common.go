@@ -1,11 +1,8 @@
 package challenge
 
 import (
-	"container/list"
-	"fmt"
 	"regexp"
 	"strings"
-	"time"
 )
 
 type Key struct {
@@ -31,79 +28,63 @@ func parse(instr string) (map[Key]byte, []byte) {
 	return pairs, template
 }
 
-func newProcess(template []byte, pairs map[Key]byte, times int) int {
-	if len(template) > 10 {
-		return 2
-	}
+func process(template []byte, pairs map[Key]byte, times int) int {
 	p := make(map[byte]map[byte]byte)
+	totals := make(map[byte]map[byte]uint64)
+	// init pair and total maps
 	for k, v := range pairs {
 		if _, ok := p[k.L]; !ok {
 			p[k.L] = make(map[byte]byte)
+			totals[k.L] = make(map[byte]uint64)
 		}
 		p[k.L][k.R] = v
+		totals[k.L][k.R] = 0
 	}
-	list := list.New()
-	for _, b := range template {
-		list.PushBack(b)
+	// seed initial values
+	for i := 0; i < len(template)-1; i += 1 {
+		l, r := template[i], template[i+1]
+		c := p[l][r]
+		totals[l][c] += 1
+		totals[c][r] += 1
 	}
-	fmt.Println()
-	for i := 0; i < times; i += 1 {
-		fmt.Println(i, list.Len(), time.Now())
-		cur := list.Front()
-		for cur.Next() != nil {
-			a := p[cur.Value.(byte)][cur.Next().Value.(byte)]
-			// fmt.Print(cur.Value, ",", cur.Next().Value, " -> ", p[cur.Value.(byte)][cur.Next().Value.(byte)])
-			// fmt.Println()
-			cur = cur.Next()
-			list.InsertBefore(a, cur)
-		}
-		// fmt.Println("----")
-	}
-	counts := make(map[byte]int)
-	cur := list.Front()
-	for cur.Next() != nil {
-		counts[cur.Value.(byte)] += 1
-	}
-	most, least := 0, len(template)
-	for _, v := range counts {
-		if most < v {
-			most = v
-		}
-		if least > v {
-			least = v
-		}
-	}
-	return most - least
-}
-
-func process(template []byte, pairs map[Key]byte, times int) int {
-	for i := 0; i < times; i += 1 {
-		newTemplate := make([]byte, 0, len(template)*2)
-		for j := 0; j < len(template)-1; j += 1 {
-			key := Key{
-				L: template[j],
-				R: template[j+1],
-			}
-			newTemplate = append(newTemplate, template[j])
-			if v, ok := pairs[key]; ok {
-				newTemplate = append(newTemplate, v)
+	// iterate the rest
+	for i := 1; i < times; i += 1 {
+		deltas := make(map[Key]uint64)
+		for l, ra := range totals {
+			for r, n := range ra {
+				c := p[l][r]
+				deltas[Key{L: l, R: c}] += n
+				deltas[Key{L: c, R: r}] += n
+				// reset value as it gets replaced
+				totals[l][r] = 0
 			}
 		}
-		newTemplate = append(newTemplate, template[len(template)-1])
-		template = newTemplate
-	}
-	counts := make(map[byte]int)
-	for i := 0; i < len(template); i += 1 {
-		counts[template[i]] += 1
-	}
-	most, least := 0, len(template)
-	for _, v := range counts {
-		if most < v {
-			most = v
-		}
-		if least > v {
-			least = v
+		for k, n := range deltas {
+			totals[k.L][k.R] += n
 		}
 	}
-	return most - least
+	// need to count left and right occurences to account for the last letter
+	counts := make(map[byte]uint64)
+	rightCounts := make(map[byte]uint64)
+	for l, ra := range totals {
+		for r, n := range ra {
+			counts[l] += n
+			rightCounts[r] += n
+		}
+	}
+	for k, v := range rightCounts {
+		if v > counts[k] {
+			counts[k] = v
+		}
+	}
+	min, max := uint64(0), uint64(0)
+	for _, c := range counts {
+		if min == 0 || min > c {
+			min = c
+		}
+		if max < c {
+			max = c
+		}
+	}
+	return int(max - min)
 }
